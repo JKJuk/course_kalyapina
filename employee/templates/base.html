@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+<header>
+    <table class="table table-bordered">
+        <tr>
+            <th><a href="{% url 'employee' %}">Усі працівники</a></th>
+            <th><a href="{% url 'position' %}">Усі посади</a></th>
+            <th><a href="{% url 'person' %}">Усі люди</a></th>
+        </tr>
+        <tr>
+            <th><a href="{% url 'employee_add' %}">Додати працівника</a></th>
+            <th><a href="{% url 'position_add' %}">Додати посаду</a></th>
+            <th><a href="{% url 'person_add' %}">Додати людину</a></th>
+        </tr>
+    </table>
+    <hr>
+</header>
+</body>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+{%block content%}
+
+{% endblock %}
+</html>

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %} Працівники{% endblock %}
+
+{%block content%}
+    {% load my_filter %}
+<h1 class="text-center">Список працівників</h1>
+<hr>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Людина</th>
+        <th>Посада</th>
+        <th>НДС(у %)</th>
+        <th>Зарбітня плата(Нетто)</th>
+        <th>Зарбітня плата(Брутто)</th>
+        <th>Функції</th>
+    </tr>
+    </thead>
+    {% for employee in employees %}
+    <tr>
+        <td>{{employee.person}}</td>
+        <td>{{employee.position}}</td>
+        <td>{{employee.NDS}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.salary|nds:employee.NDS}}</td>
+        <td>
+            <a href="{% url 'employee_delete' employee.id %}">Видалити</a> |
+            <a href="{% url 'employee_edit' employee.id %}">Змінити</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

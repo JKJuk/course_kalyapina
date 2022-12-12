@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %} Посади{% endblock %}
+
+{%block content%}
+<h1 class="text-center">Список посад</h1>
+<hr>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>Назва</th>
+        <th>Кількість годин у тиждень</th>
+        <th>Функції</th>
+    </tr>
+    </thead>
+    {% for position in positions %}
+    <tr>
+        <td>{{position.name_position}}</td>
+        <td>{{position.count_hours_in_week}}</td>
+        <td>
+            <a href="{% url 'position_delete' position.id %}">Видалити</a> |
+            <a href="{% url 'position_edit' position.id %}">Змінити</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
