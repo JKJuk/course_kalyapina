@@ -56,7 +56,7 @@ def person_edit(request, id):
     return render(request, 'edit.html', {'form': form, 'name': 'Форма для змінення людини'})
 
 
-def person_delete(request):
+def person_delete(request, id):
     Person.objects.get(id=id).delete()
     return redirect('person')
 
@@ -89,7 +89,7 @@ def position_edit(request, id):
     return render(request, 'edit.html', {'form': form, 'name': 'Форма для змінення посади'})
 
 
-def position_delete(request):
+def position_delete(request, id):
     Position.objects.get(id=id).delete()
     return redirect('position')
 
